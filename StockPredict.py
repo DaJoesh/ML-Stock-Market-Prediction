@@ -87,7 +87,7 @@ Y_pred
 # Plotting the values up until today
 plt.plot(df.iloc[test_index]['Date'], Y_test, label='True Value')
 plt.plot(df.iloc[test_index]['Date'], Y_pred, label='Predicted Value')
-plt.title('Microsoft Stock Price Prediction vs. True Value')
+plt.title('Stock Price Prediction vs. True Value')
 plt.xlabel("Date")
 plt.ylabel("Price (USD)")
 plt.legend()
@@ -111,9 +111,6 @@ plt.plot(last_week_df['Date'], last_week_df['Adj Close'], label='Historical Valu
 plt.scatter(next_day.strftime('%m-%d'), next_day_prediction, color='g', label='Predicted Next Day Value')
 plt.xlabel("Date")
 plt.ylabel("Price (USD)")
-plt.title("Microsoft Stock Price Prediction for the Last Week")
+plt.title("Stock Price Prediction for the Last Week")
 plt.legend()
 plt.show()
-
-
-
