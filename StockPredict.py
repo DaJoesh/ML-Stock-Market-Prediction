@@ -48,6 +48,8 @@ features = ['Open','High','Low','Volume']
 scaler = MinMaxScaler()
 feature_transform = scaler.fit_transform(df[features])
 feature_transform = pd.DataFrame(data=feature_transform, columns=features, index=df.index)
+feature_transform.head()
+feature_transform
 
 # %%
 #Splitting to train and test set
@@ -79,6 +81,17 @@ lstm.fit(X_train, Y_train, epochs=200, batch_size=8, verbose=1, shuffle=False)
 # %%
 #Prediction
 Y_pred = lstm.predict(X_test)
+Y_pred
+
+# %%
+# Plotting the values up until today
+plt.plot(df.iloc[test_index]['Date'], Y_test, label='True Value')
+plt.plot(df.iloc[test_index]['Date'], Y_pred, label='Predicted Value')
+plt.title('Microsoft Stock Price Prediction vs. True Value')
+plt.xlabel("Date")
+plt.ylabel("Price (USD)")
+plt.legend()
+plt.show()
 
 # %%
 # Fetch the latest data and making a future prediction
